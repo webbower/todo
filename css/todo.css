@@ -1,0 +1,57 @@
+@import url(reset.css);
+
+body {
+	max-width: 480px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+h1 {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+ul {
+	border: solid #999;
+	border-width: 0 1px;
+}
+
+li {
+	list-style: none;
+	border-bottom: 1px solid #999;
+	padding: 5px 10px;
+	font-size: 18px;
+}
+
+form {
+	border: 1px solid #999;
+	padding: 10px;
+}
+
+input[type=text] {
+	width: 85%;
+	font-size: 18px;
+	border: 1px solid #333;
+	
+}
+
+form button {
+	font-size: 18px;
+	padding: 0;
+	line-height: 18px;
+}
+
+li button {
+	font-size: 18px;
+	line-height: 18px;
+	padding: 0;
+	text-indent: -9999em;
+}
+
+.touch li button:active {
+	background: none;
+}
+
+label {
+	display: none;
+}
