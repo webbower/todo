@@ -16,7 +16,7 @@
 				s = s.replace(new RegExp('\\{' + i + '\\}', 'gi'), arguments[i]);
 			
 			return s;
-		}
+		};
 	}
 })();
 
@@ -30,7 +30,7 @@
 		list: null,
 		
 		templates: {
-			task: '<li id="todo-{0}"><button type="button">Completed</button> {1}</li>'
+			task: '<li id="task-{0}"><button type="button">Completed</button> {1}</li>'
 		},
 		
 		init: function() {
@@ -67,18 +67,47 @@
 					self.completeTask($(this).closest('li'));
 				})
 			;
+			
+			// Reload stored tasks
+			var
+				taskCount = localStorage.length,
+				i = taskCount,
+				id
+			;
+			if(taskCount) {
+				while(i--) {
+					id = localStorage.key(i);
+					this.list.prepend(this.templates.task.format(id.split('-')[1], localStorage.getItem(id)));
+				}
+			}
+			
+			// window.addEventListener('storage', function() {
+			// 	console.log(key, newValue);
+			// }, false);
+			// $(window).on('storage', function() {
+			// 	console.log(key, newValue);
+			// });
 		},
 		
 		addTask: function(todo) {
-			if(!!todo)
-				this.list.append(this.templates.task.format((new Date()).getTime(), todo));
+			if(!!todo) {
+				var
+					id = (new Date()).getTime()
+				;
+				localStorage.setItem("task-{0}".format(id), todo);
+				this.list.append(this.templates.task.format(id, todo));
+			}
 		},
 		
 		completeTask: function(taskEl) {
 			if(!!taskEl) {
 				taskEl = (!!taskEl.jquery ? taskEl : $(taskEl));
+				var
+					id = taskEl[0].id
+				;
 				
 				taskEl.fadeOut(400, function() {
+					localStorage.removeItem(id);
 					$(this).remove();
 				});
 			}

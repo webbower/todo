@@ -1,6 +1,6 @@
 # Simple browser-based Todo app
 
-Download the files, drop the index.html onto your browser, create a todo list. At the moment, the list will only last until you refresh the page. There is no persistance built-in quite yet.
+Download the files, drop the index.html onto your browser, create a todo list. Supports persistance through page refresh, but because it uses localStorage, I think that means you have to serve it up from the exact same location each time otherwise the stored tasks won't be properly associated.
 
 This will probably never evolve past a single list interface so please don't ask. The Roadmap below outlines my ultimate plans for this. It's just something stupid, simple, and allows me to play with new JS APIs.
 
@@ -9,7 +9,6 @@ It comes with a simple config.ru to use with Rack server if you feel like hostin
 ## Roadmap
 
 1. Add better styling
-2. Add persistence with local storage (and if I feel like supporting the oldies, fallback on cookies)
-3. Add the ability to edit the tasks
-4. Download a custom Modernizr build or replace with my own test(s)
-5. Add cache.manifest?
+1. Add the ability to edit the tasks
+1. Download a custom Modernizr build or replace with my own test(s)
+1. Add cache.manifest?
