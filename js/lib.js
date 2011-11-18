@@ -1,4 +1,8 @@
 (function() {
+	window.log = window.console.log || function() {};
+})();
+
+(function() {
 	"use strict";
 	
 	if(!String.prototype.format) {
@@ -30,7 +34,7 @@
 		},
 		
 		init: function() {
-			console.log("TODO INIT");
+			log("TODO INIT");
 			this.form = $('#add-form');
 			this.list = $('#tasks');
 			
@@ -42,7 +46,7 @@
 			this.form
 				.on('submit', function(ev) {
 					ev.preventDefault();
-					console.log("ADDING");  // TODO: Remove for Production
+					log("ADDING");  // TODO: Remove for Production
 
 					var
 						field = self.form.find('input[type=text]'),
@@ -58,7 +62,7 @@
 			
 			this.list
 				.on(tapEvent, 'li button', function(ev) {
-					console.log("COMPLETING");  // TODO: Remove for Production
+					log("COMPLETING");  // TODO: Remove for Production
 
 					self.completeTask($(this).closest('li'));
 				})
