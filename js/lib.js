@@ -30,11 +30,11 @@
 		list: null,
 		
 		templates: {
-			task: '<li id="task-{0}"><button type="button">Completed</button> {1}</li>'
+			task: '<li id="task-{0}"><button type="button" class="ir">Completed</button> {1}</li>'
 		},
 		
 		init: function() {
-			log("TODO INIT");
+			// log("TODO INIT");
 			this.form = $('#add-form');
 			this.list = $('#tasks');
 			
@@ -46,7 +46,7 @@
 			this.form
 				.on('submit', function(ev) {
 					ev.preventDefault();
-					log("ADDING");  // TODO: Remove for Production
+					// log("ADDING");  // TODO: Remove for Production
 
 					var
 						field = self.form.find('input[type=text]'),
@@ -62,7 +62,7 @@
 			
 			this.list
 				.on(tapEvent, 'li button', function(ev) {
-					log("COMPLETING");  // TODO: Remove for Production
+					// log("COMPLETING");  // TODO: Remove for Production
 
 					self.completeTask($(this).closest('li'));
 				})
@@ -81,11 +81,15 @@
 				}
 			}
 			
-			// window.addEventListener('storage', function() {
-			// 	console.log(key, newValue);
+			// window.onstorage = function(ev) {
+			// 	console.log(ev, ev.key, ev.newValue);
+			// };
+			// window.addEventListener('storage', function(ev) {
+			// 	console.log(ev, ev.key, ev.newValue);
 			// }, false);
-			// $(window).on('storage', function() {
-			// 	console.log(key, newValue);
+			// $(window).on('storage', function(ev) {
+			// 	alert("foo");
+			// 	console.log(ev.key, ev.newValue);
 			// });
 		},
 		

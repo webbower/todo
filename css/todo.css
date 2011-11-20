@@ -1,5 +1,16 @@
 @import url(reset.css);
 
+/* ################ UTILITIES ################ */
+
+/* IMAGE REPLACEMENT */
+.ir {
+	text-indent: -9999em;
+	overflow: hidden;
+	background-repeat: no-repeat;
+}
+
+/* ################ STYLES ################ */
+
 body {
 	max-width: 480px;
 	width: 100%;
@@ -29,23 +40,33 @@ form {
 }
 
 input[type=text] {
-	width: 85%;
+	width: 93%;
 	font-size: 18px;
 	border: 1px solid #333;
-	
+}
+
+button {
+	border: 0;
+	background-color: transparent;
+	vertical-align: middle;
+	width: 24px;
+	height: 24px;
+	-webkit-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	background-size: 100% 100%;
+	font-size: 24px;
+	padding: 0;
+	line-height: 24px;
+	cursor: pointer;
 }
 
 form button {
-	font-size: 18px;
-	padding: 0;
-	line-height: 18px;
+	background-image: url(../img/add.png);
 }
 
 li button {
-	font-size: 18px;
-	line-height: 18px;
-	padding: 0;
-	text-indent: -9999em;
+	background-image: url(../img/tick.png);
+	margin-right: 5px;
 }
 
 .touch li button:active {
@@ -54,4 +75,13 @@ li button {
 
 label {
 	display: none;
+}
+
+button.ir {
+	display: inline-block;
+}
+
+.ie7 button.ir {
+	display: inline;
+	zoom: 1;
 }
